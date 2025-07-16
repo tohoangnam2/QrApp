@@ -11,8 +11,6 @@
 		BB63328D2E2604BF00ADE5A4 /* HistoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB63328C2E2604BF00ADE5A4 /* HistoryType.swift */; };
 		BB6332922E2607CE00ADE5A4 /* ScanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6332902E2607CE00ADE5A4 /* ScanTableViewCell.swift */; };
 		BB6332932E2607CE00ADE5A4 /* ScanTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB6332912E2607CE00ADE5A4 /* ScanTableViewCell.xib */; };
-		BB6332962E2607E000ADE5A4 /* CreateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6332942E2607E000ADE5A4 /* CreateTableViewCell.swift */; };
-		BB6332972E2607E000ADE5A4 /* CreateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB6332952E2607E000ADE5A4 /* CreateTableViewCell.xib */; };
 		BB63329A2E26088400ADE5A4 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6332992E26088400ADE5A4 /* HistoryModel.swift */; };
 		BB7CF3EB2E16DC5B00A4DA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7CF3EA2E16DC5B00A4DA70 /* AppDelegate.swift */; };
 		BB7CF3EF2E16DC5B00A4DA70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7CF3EE2E16DC5B00A4DA70 /* ViewController.swift */; };
@@ -48,8 +46,6 @@
 		BB63328C2E2604BF00ADE5A4 /* HistoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryType.swift; sourceTree = "<group>"; };
 		BB6332902E2607CE00ADE5A4 /* ScanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanTableViewCell.swift; sourceTree = "<group>"; };
 		BB6332912E2607CE00ADE5A4 /* ScanTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScanTableViewCell.xib; sourceTree = "<group>"; };
-		BB6332942E2607E000ADE5A4 /* CreateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTableViewCell.swift; sourceTree = "<group>"; };
-		BB6332952E2607E000ADE5A4 /* CreateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTableViewCell.xib; sourceTree = "<group>"; };
 		BB6332992E26088400ADE5A4 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		BB7CF3E72E16DC5B00A4DA70 /* QrApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QrApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7CF3EA2E16DC5B00A4DA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +100,6 @@
 		BB63328B2E2604AF00ADE5A4 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				BB63328F2E2607B300ADE5A4 /* CreateCell */,
 				BB63328E2E2607AC00ADE5A4 /* ScanCell */,
 			);
 			path = Cells;
@@ -117,15 +112,6 @@
 				BB6332912E2607CE00ADE5A4 /* ScanTableViewCell.xib */,
 			);
 			path = ScanCell;
-			sourceTree = "<group>";
-		};
-		BB63328F2E2607B300ADE5A4 /* CreateCell */ = {
-			isa = PBXGroup;
-			children = (
-				BB6332942E2607E000ADE5A4 /* CreateTableViewCell.swift */,
-				BB6332952E2607E000ADE5A4 /* CreateTableViewCell.xib */,
-			);
-			path = CreateCell;
 			sourceTree = "<group>";
 		};
 		BB7CF3DE2E16DC5B00A4DA70 = {
@@ -380,7 +366,6 @@
 				BB6332932E2607CE00ADE5A4 /* ScanTableViewCell.xib in Resources */,
 				BB9CF3A22E20FD03005E79FE /* SettingViewController.xib in Resources */,
 				BB9CF39D2E1F8092005E79FE /* TextView.xib in Resources */,
-				BB6332972E2607E000ADE5A4 /* CreateTableViewCell.xib in Resources */,
 				BB9CF3852E1E753F005E79FE /* GenerateViewController.xib in Resources */,
 				BB7CF3F72E16DC5D00A4DA70 /* Base in Resources */,
 			);
@@ -402,7 +387,6 @@
 				BB9CF3A12E20FD03005E79FE /* SettingViewController.swift in Sources */,
 				BB6332922E2607CE00ADE5A4 /* ScanTableViewCell.swift in Sources */,
 				BB7CF40A2E19312000A4DA70 /* WelcomeViewController.swift in Sources */,
-				BB6332962E2607E000ADE5A4 /* CreateTableViewCell.swift in Sources */,
 				BB9CF38E2E1F6457005E79FE /* GenerateCollectionViewCell.swift in Sources */,
 				BB9CF3962E1F72D4005E79FE /* DetailGenerateViewController.swift in Sources */,
 				BB11DA232E265F5E001BCE5C /* HistoryStore.swift in Sources */,

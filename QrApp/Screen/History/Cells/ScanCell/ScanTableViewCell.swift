@@ -8,6 +8,10 @@
 import UIKit
 import Foundation
 
+protocol ScanTableViewCellDelegate: AnyObject {
+    func scanCellDidRequestDelete(_ cell: ScanTableViewCell)
+}
+
 class ScanTableViewCell: UITableViewCell {
 
   @IBOutlet var hisScanImage: UIImageView!
@@ -17,6 +21,9 @@ class ScanTableViewCell: UITableViewCell {
   @IBOutlet var hisTypeLabel: UILabel!
 
   @IBOutlet var hisTimeLabel: UILabel!
+
+  weak var delegate: ScanTableViewCellDelegate?
+
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -30,30 +37,29 @@ class ScanTableViewCell: UITableViewCell {
 
   override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
-
-    // Configure the view for the selected state
   }
+
   func config(model : HistoryModel){
-            // 1. Image: dùng hình nếu có, nếu không dùng icon theo loại
-            if let img = model.image {
-                hisScanImage.image = img
-            } else {
-                let iconName = model.histype == .scan ? "icon_scan" : "icon_create"
-                hisScanImage.image = UIImage(named: iconName)
-            }
+    if let data = model.image {
+      hisScanImage.image = data
+    } else {
+      let iconName = model.histype == .scan ? "icon_scan" : "icon_create"
+      hisScanImage.image = UIImage(named: iconName)
+    }
 
-            // 2. Texts
-            hisNameLabel.text = model.title
-            hisTypeLabel.text = model.type
+    hisTypeLabel.text = model.type
 
-            let df = DateFormatter()
-            df.dateFormat = "HH:mm dd/MM"
-            hisTimeLabel.text = df.string(from: model.date)
+    let df = DateFormatter()
+    df.dateFormat = "HH:mm dd/MM"
+    hisTimeLabel.text = df.string(from: model.date)
 
   }
 
   @IBAction func didTapDeleteHis(_ sender: Any) {
+    delegate?.scanCellDidRequestDelete(self)
+
   }
 
 
 }
+

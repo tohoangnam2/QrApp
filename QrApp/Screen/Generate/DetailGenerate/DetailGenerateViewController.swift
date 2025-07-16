@@ -56,15 +56,19 @@
 
               ])
 
+
         textView.onGenerate = { [weak self] text in
           print("Tap Generate with text:", text) 
+
+          let image = self?.generateThumbnail(from: text)
+             let imageData = image?.jpegData(compressionQuality: 0.8)
           let record = HistoryModel(
-                  histype  : .create,
-                  image : self?.generateThumbnail(from: text), 
-                  title : text,
-                  type  : "TEXT",
-                  date  : Date()
-              )
+                 histype: .create,
+                 imageData: imageData,
+                 title: text,
+                 type: "TEXT",
+                 date: Date()
+             )
               HistoryStore.shared.add(record)
 
             self?.openQrScreen(with: text)   // push sang màn QR

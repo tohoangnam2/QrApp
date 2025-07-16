@@ -67,7 +67,7 @@ extension GenerateViewController : UICollectionViewDelegate , UICollectionViewDa
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = generateCollectionView.dequeueReusableCell(withReuseIdentifier: "GenerateCollectionViewCell", for: indexPath) as! GenerateCollectionViewCell
-    let model = listGenerate[indexPath.row] // ✅ đưa ra ngoài
+    let model = listGenerate[indexPath.row] 
 
     cell.config(model: model)
 

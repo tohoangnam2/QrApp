@@ -86,10 +86,14 @@ class QrHomeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
         captureSession.stopRunning()
 
+
+      let thumbnailImage = generateThumbnail(from: value)
+      let imageData = thumbnailImage?.jpegData(compressionQuality: 0.8)
+
         // Tạo bản ghi lịch sử
         let record = HistoryModel(
             histype: .scan,
-            image   : generateThumbnail(from: value),
+            imageData   : imageData,
             title : value,
             type : value.hasPrefix("http") ? "URL" : "TEXT",
             date : Date()
@@ -99,25 +103,18 @@ class QrHomeViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
         showAlert(value)
     }
-  func generateThumbnail(from text: String, scale: CGFloat = 6) -> UIImage? {
-      // 1. Tạo data ASCII
-      guard let data = text.data(using: .ascii),
-            // 2. Lấy filter QR
-            let filter = CIFilter(name: "CIQRCodeGenerator") else { return nil }
-
-      filter.setValue(data, forKey: "inputMessage")
-      filter.setValue("Q", forKey: "inputCorrectionLevel")   // Mức dự phòng lỗi (L/M/Q/H)
-
-      // 3. Lấy output CIImage
-      guard let outputImage = filter.outputImage else { return nil }
-
-      // 4. Phóng đại để không bị mờ
-      let transform = CGAffineTransform(scaleX: scale, y: scale)
-      let scaledImage = outputImage.transformed(by: transform)
-
-      // 5. Chuyển qua UIImage
-      return UIImage(ciImage: scaledImage)
+  func generateThumbnail(from string: String) -> UIImage? {
+      let data = string.data(using: .ascii)
+      if let filter = CIFilter(name: "CIQRCodeGenerator") {
+          filter.setValue(data, forKey: "inputMessage")
+          let transform = CGAffineTransform(scaleX: 5, y: 5)
+          if let output = filter.outputImage?.transformed(by: transform) {
+              return UIImage(ciImage: output)
+          }
+      }
+      return nil
   }
+
 
 
 

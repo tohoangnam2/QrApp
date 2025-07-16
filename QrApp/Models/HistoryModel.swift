@@ -10,16 +10,27 @@ import UIKit
 
 
 
-struct HistoryModel {
+struct HistoryModel : Codable {
 
-  var histype : HistoryType
+  let histype : HistoryType
   //scan
-  var image : UIImage?
-  var title : String
-  var type : String
-  var date : Date
+  let imageData : Data?
+  let title : String
+  let type : String
+  let date : Date
 
-  //create
+  var image: UIImage? {
+          if let imageData = imageData {
+              return UIImage(data: imageData)
+          }
+          return nil
+      }
+
+
+  enum HistoryType : String, Codable {
+    case scan
+    case create
+  }
 }
 
 

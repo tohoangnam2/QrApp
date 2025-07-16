@@ -7,15 +7,15 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController {
-  
+class HistoryViewController: UIViewController{
+
   @IBOutlet var historyTableView: UITableView!
 
   @IBOutlet var scanBtn: UIButton!
   
   @IBOutlet var createBtn: UIButton!
   
-  var historyType : HistoryType = .scan
+  var historyType :HistoryModel.HistoryType = .scan
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,22 +100,23 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int { 1 }
 
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+  func tableView(_ tableView: UITableView,
+                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let model: HistoryModel = {
-                  switch historyType {
-                  case .scan:
-                      return HistoryStore.shared.scans[indexPath.section]
-                  case .create:
-                      return HistoryStore.shared.create[indexPath.section]
-                  }
-              }()
+          switch historyType {
+          case .scan:
+              return HistoryStore.shared.scans[indexPath.section]
+          case .create:
+              return HistoryStore.shared.create[indexPath.section]
+          }
+      }()
 
-              let cell = tableView.dequeueReusableCell(withIdentifier: "ScanTableViewCell",
-                                                       for: indexPath) as! ScanTableViewCell
-              cell.config(model: model)
-              return cell
-    }
+      let cell = tableView.dequeueReusableCell(withIdentifier: "ScanTableViewCell",
+                                               for: indexPath) as! ScanTableViewCell
+      cell.config(model: model)
+//      cell.delegate = self
+      return cell
+  }
 
     func tableView(_ tableView: UITableView,
                    viewForHeaderInSection section: Int) -> UIView? {
@@ -125,4 +126,20 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
                    heightForHeaderInSection section: Int) -> CGFloat {
         return section == 0 ? 0 : 10
     }
+
+
+  
 }
+
+//delete
+//extension HistoryViewController: ScanTableViewCellDelegate {
+//    func scanCellDidRequestDelete(_ cell: ScanTableViewCell) {
+//        guard let indexPath = historyTableView.indexPath(for: cell) else { return }
+//
+//        HistoryStore.shared.delete(at: indexPath.section, for: historyType)
+//
+//        historyTableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
+//    }
+//}
+
+

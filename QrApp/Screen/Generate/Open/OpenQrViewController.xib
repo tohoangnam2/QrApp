@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OpenQrViewController" customModule="QrApp" customModuleProvider="target">
+            <connections>
+                <outlet property="showQrImage" destination="97G-UT-0dV" id="MbR-jq-iZg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlT-Zs-16P">
+                    <rect key="frame" x="45" y="69" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="Lqo-Z9-CbM"/>
+                        <constraint firstAttribute="height" constant="45" id="STh-eW-2l6"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="back"/>
+                    <connections>
+                        <action selector="didTapBack:" destination="-1" eventType="touchUpInside" id="CUp-9q-7zr"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOn-pF-9qc">
+                    <rect key="frame" x="80" y="234" width="233" height="300"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="97G-UT-0dV">
+                            <rect key="frame" x="0.0" y="0.0" width="233" height="180"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="180" id="OQ5-B2-T6c"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="XAq-2V-kFj">
+                            <rect key="frame" x="10" y="230" width="213" height="60"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbu-ZB-4ix">
+                                    <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="60"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="open1"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SAP-MY-fVF">
+                                    <rect key="frame" x="124.66666666666666" y="0.0" width="88.333333333333343" height="60"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="open1"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="NzH-sq-2em"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="97G-UT-0dV" firstAttribute="top" secondItem="XOn-pF-9qc" secondAttribute="top" id="1xP-3v-2vy"/>
+                        <constraint firstItem="XAq-2V-kFj" firstAttribute="top" secondItem="97G-UT-0dV" secondAttribute="bottom" constant="50" id="2aK-OX-LjF"/>
+                        <constraint firstAttribute="trailing" secondItem="97G-UT-0dV" secondAttribute="trailing" id="HdO-qL-bmJ"/>
+                        <constraint firstAttribute="trailing" secondItem="XAq-2V-kFj" secondAttribute="trailing" constant="10" id="Y3E-UF-cFA"/>
+                        <constraint firstItem="XAq-2V-kFj" firstAttribute="leading" secondItem="XOn-pF-9qc" secondAttribute="leading" constant="10" id="jdA-2t-jZn"/>
+                        <constraint firstAttribute="height" constant="300" id="r8c-pD-evi"/>
+                        <constraint firstItem="97G-UT-0dV" firstAttribute="leading" secondItem="XOn-pF-9qc" secondAttribute="leading" id="rKI-zO-Aiq"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.81982098510000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XOn-pF-9qc" firstAttribute="top" secondItem="ZlT-Zs-16P" secondAttribute="bottom" constant="120" id="0cF-wS-gr6"/>
+                <constraint firstItem="XOn-pF-9qc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="80" id="FQQ-vs-jl5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XOn-pF-9qc" secondAttribute="trailing" constant="80" id="V7Q-8x-xDu"/>
+                <constraint firstItem="ZlT-Zs-16P" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="45" id="bs5-Tq-f7S"/>
+                <constraint firstItem="ZlT-Zs-16P" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="utr-Vu-0JI"/>
+            </constraints>
+            <point key="canvasLocation" x="94" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="132" height="124"/>
+        <image name="open1" width="104" height="104"/>
+    </resources>
+</document>
